@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <mainguimanager.h>
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -19,6 +19,9 @@ int main(int argc, char *argv[])
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
+    //开始写逻辑
+    qmlRegisterType<MainGuiManager>("App", 1, 0, "Backend");
+
     engine.load(url);
 
     return app.exec();
