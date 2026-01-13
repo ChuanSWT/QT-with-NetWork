@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QVariant>
 #include <QTimer>
+#include <QJsonValue>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include "mynetworkmanager.h"
 
 class MainGuiManager : public QObject
@@ -32,7 +35,8 @@ private:
     MyNetWorkManager* manager;
     QVariantList m_data;//所有的聊天记录
 private slots:
-    void processData(QByteArray data);
+    void onGetData(QByteArray data);
+    void onPostData(QByteArray data);
 //**!*内部逻辑*!**//
 };
 
