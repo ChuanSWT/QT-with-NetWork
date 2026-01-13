@@ -7,14 +7,16 @@ class MyNetWorkManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit MyNetWorkManager(QObject *parent = nullptr);
     void get(const QString &path);
+signals:
+    void Received(QByteArray data);
+
+
+public:
+    explicit MyNetWorkManager(QObject *parent = nullptr);
 private:
     QNetworkAccessManager *manager;
     QString base_url;
-
-signals:
-    void Received(QByteArray data);
 };
 
 #endif // MYNETWORKMANAGER_H
