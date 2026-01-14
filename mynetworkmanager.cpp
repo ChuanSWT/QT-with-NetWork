@@ -17,10 +17,11 @@ void MyNetWorkManager::get(const QString &path){
     //连接finished到处理函数，触发时reply已经填充完成
     connect(reply, &QNetworkReply::finished, this, [=]() {
         if (reply->error() == QNetworkReply::NoError) {
-            QByteArray data = reply->readAll();
-            emit ReceivedGet(data);
+            NetResult r=r.success(true,reply->url(),reply->readAll());
+            emit ReceivedGet(r);
         } else {
-            qDebug() << "Error:" << reply->errorString();
+            NetResult r=r.failure(false,reply->url(),reply->readAll());
+            emit ReceivedGet(r);
         }
         reply->deleteLater();
     });
@@ -38,10 +39,11 @@ void MyNetWorkManager::post(const QString &path,const QByteArray &data){
     //连接finished到处理函数，触发时reply已经填充完成
     connect(reply, &QNetworkReply::finished, this, [=]() {
         if (reply->error() == QNetworkReply::NoError) {
-            QByteArray data = reply->readAll();
-            emit ReceivedPost(data);
+            NetResult r=r.success(true,reply->url(),reply->readAll());
+            emit ReceivedPost(r);
         } else {
-            qDebug() << "Error:" << reply->errorString();
+            NetResult r=r.failure(false,reply->url(),reply->readAll());
+            emit ReceivedPost(r);
         }
         reply->deleteLater();
     });

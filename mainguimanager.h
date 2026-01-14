@@ -8,7 +8,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include "mynetworkmanager.h"
-
+#include "netresult.h"
 class MainGuiManager : public QObject
 {
     Q_OBJECT
@@ -35,8 +35,8 @@ private:
     MyNetWorkManager* manager;
     QVariantList m_data;//所有的聊天记录
 private slots:
-    void onGetData(QByteArray data);
-    void onPostData(QByteArray data);
+    void onGetData(NetResult res);
+    void onPostData(NetResult res);
 //**!*内部逻辑*!**//
 };
 

@@ -38,11 +38,11 @@ void MainGuiManager::getMessages(){
     manager->get("/api/test");
 }
 //manager接收到http数据通知进行操作
-void MainGuiManager::onGetData(QByteArray data){
-    qDebug(data);
+void MainGuiManager::onGetData(NetResult res){
+    qDebug()<<res;
     //TODOTODO：加入get结果后逻辑
 }
-void MainGuiManager::onPostData(QByteArray data){
-    qDebug(data);
+void MainGuiManager::onPostData(NetResult res){
+    qDebug()<<res;
     //TODOTODO：加入post结果后逻辑
 }

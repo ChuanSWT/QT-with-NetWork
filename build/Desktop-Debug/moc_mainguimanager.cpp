@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainGuiManager_t {
-    QByteArrayData data[9];
-    char stringdata0[79];
+    QByteArrayData data[11];
+    char stringdata0[93];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,15 +36,18 @@ QT_MOC_LITERAL(0, 0, 14), // "MainGuiManager"
 QT_MOC_LITERAL(1, 15, 11), // "dataChanged"
 QT_MOC_LITERAL(2, 27, 0), // ""
 QT_MOC_LITERAL(3, 28, 9), // "onGetData"
-QT_MOC_LITERAL(4, 38, 4), // "data"
-QT_MOC_LITERAL(5, 43, 10), // "onPostData"
-QT_MOC_LITERAL(6, 54, 4), // "send"
-QT_MOC_LITERAL(7, 59, 7), // "message"
-QT_MOC_LITERAL(8, 67, 11) // "getMessages"
+QT_MOC_LITERAL(4, 38, 9), // "NetResult"
+QT_MOC_LITERAL(5, 48, 3), // "res"
+QT_MOC_LITERAL(6, 52, 10), // "onPostData"
+QT_MOC_LITERAL(7, 63, 4), // "send"
+QT_MOC_LITERAL(8, 68, 7), // "message"
+QT_MOC_LITERAL(9, 76, 11), // "getMessages"
+QT_MOC_LITERAL(10, 88, 4) // "data"
 
     },
     "MainGuiManager\0dataChanged\0\0onGetData\0"
-    "data\0onPostData\0send\0message\0getMessages"
+    "NetResult\0res\0onPostData\0send\0message\0"
+    "getMessages\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,25 +69,25 @@ static const uint qt_meta_data_MainGuiManager[] = {
 
  // slots: name, argc, parameters, tag, flags
        3,    1,   40,    2, 0x08 /* Private */,
-       5,    1,   43,    2, 0x08 /* Private */,
+       6,    1,   43,    2, 0x08 /* Private */,
 
  // methods: name, argc, parameters, tag, flags
-       6,    1,   46,    2, 0x02 /* Public */,
-       8,    0,   49,    2, 0x02 /* Public */,
+       7,    1,   46,    2, 0x02 /* Public */,
+       9,    0,   49,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QByteArray,    4,
-    QMetaType::Void, QMetaType::QByteArray,    4,
+    QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Void, 0x80000000 | 4,    5,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QVariant,    7,
+    QMetaType::Void, QMetaType::QVariant,    8,
     QMetaType::Void,
 
  // properties: name, type, flags
-       4, QMetaType::QVariantList, 0x00495001,
+      10, QMetaType::QVariantList, 0x00495001,
 
  // properties: notify_signal_id
        0,
@@ -99,8 +102,8 @@ void MainGuiManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         (void)_t;
         switch (_id) {
         case 0: _t->dataChanged(); break;
-        case 1: _t->onGetData((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
-        case 2: _t->onPostData((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
+        case 1: _t->onGetData((*reinterpret_cast< NetResult(*)>(_a[1]))); break;
+        case 2: _t->onPostData((*reinterpret_cast< NetResult(*)>(_a[1]))); break;
         case 3: _t->send((*reinterpret_cast< QVariant(*)>(_a[1]))); break;
         case 4: _t->getMessages(); break;
         default: ;

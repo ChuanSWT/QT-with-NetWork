@@ -7,7 +7,8 @@ QT += network
 SOURCES += \
         main.cpp \
         mainguimanager.cpp \
-        mynetworkmanager.cpp
+        mynetworkmanager.cpp \
+        netresult.cpp
 
 RESOURCES += qml.qrc
 
@@ -24,4 +25,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     mainguimanager.h \
-    mynetworkmanager.h
+    mynetworkmanager.h \
+    netresult.h

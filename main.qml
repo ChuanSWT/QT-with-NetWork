@@ -28,6 +28,7 @@ Window {
                 wrapMode: TextEdit.Wrap
                 font.pixelSize: 14
                 color: "#333"
+
             }
         }
 
@@ -35,6 +36,7 @@ Window {
             id:typer
             height:128
             width:root.width
+            wrapMode: TextEdit.Wrap
         }
         Button{
             id:send_button
@@ -42,6 +44,7 @@ Window {
             width:root.width
             onClicked: {
                 backend.send(typer.text)
+                typer.text=""
             }
         }
     }
