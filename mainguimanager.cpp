@@ -21,7 +21,6 @@ MainGuiManager::MainGuiManager(QObject *parent)
     //*!*数据处理部分*!*//
 }
 Q_INVOKABLE void MainGuiManager::send(QVariant message){
-    //TODOTODO:处理QML的send函数调用
     QJsonValue jsonValueMsg = QJsonValue::fromVariant(message);
 
     QVariantMap data;//准备Map,向其中装填数据，最后转化为json
@@ -39,10 +38,19 @@ void MainGuiManager::getMessages(){
 }
 //manager接收到http数据通知进行操作
 void MainGuiManager::onGetData(NetResult res){
-    qDebug()<<res;
+    //qDebug()<<res;
+    QByteArray body = res.body();
+
+    QJsonParseError err;
+    QJsonDocument doc = QJsonDocument::fromJson(body, &err);
+
+    QJsonObject obj = doc.object();
+    m_data=obj["data"].toArray().toVariantList();
+
+    emit dataChanged();
     //TODOTODO：加入get结果后逻辑
 }
 void MainGuiManager::onPostData(NetResult res){
-    qDebug()<<res;
+    //qDebug()<<res;
     //TODOTODO：加入post结果后逻辑
 }

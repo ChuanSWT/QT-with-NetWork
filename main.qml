@@ -20,14 +20,20 @@ Window {
             width: root.width
             border.color: "#cccccc"
             color: "white"
-
-            TextEdit {
-                id:displayer
+            ScrollView {
                 anchors.fill: parent
-                anchors.margins: 8
-                wrapMode: TextEdit.Wrap
-                font.pixelSize: 14
-                color: "#333"
+                clip: true
+                TextEdit {
+                    id: displayer
+                    anchors.fill: parent
+                    anchors.margins: 8
+                    wrapMode: TextEdit.NoWrap
+                    font.pixelSize: 14
+                    color: "#333"
+
+                    text: backend.data.join("\n")   // ⭐自动更新
+                    readOnly: true
+                }
 
             }
         }

@@ -7,6 +7,7 @@
 #include <QJsonValue>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
 #include "mynetworkmanager.h"
 #include "netresult.h"
 class MainGuiManager : public QObject
@@ -14,17 +15,20 @@ class MainGuiManager : public QObject
     Q_OBJECT
 //***QML逻辑***//
     Q_PROPERTY(QVariantList data READ data NOTIFY dataChanged)
-
+    // ----输入框=================================================
 public:
     Q_INVOKABLE void send(QVariant message);
-    Q_INVOKABLE void getMessages();
+signals:
 
+    // ----显示框=================================================
+public:
+    Q_INVOKABLE void getMessages();
     QVariantList data() const {
         return m_data;
     }
-
 signals:
     void dataChanged();//提醒qml的
+
 //**!*QML逻辑*!**//
 
 //***内部逻辑***//
