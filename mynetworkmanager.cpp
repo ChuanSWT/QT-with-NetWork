@@ -8,7 +8,11 @@ MyNetWorkManager::MyNetWorkManager(QObject *parent)
 }
 void MyNetWorkManager::get(const QString &path){
     //拼接url
-    QUrl url(base_url+path);
+    QUrl url;
+    url.setScheme("http");
+    url.setHost("localhost");
+    url.setPort(8080);
+    url.setPath(path);
     //得到请求体
     QNetworkRequest request(url);
     //交给manager
@@ -28,7 +32,11 @@ void MyNetWorkManager::get(const QString &path){
 }
 void MyNetWorkManager::post(const QString &path,const QByteArray &data){
     //拼接url
-    QUrl url(base_url+path);
+    QUrl url;
+    url.setScheme("http");
+    url.setHost("localhost");
+    url.setPort(8080);
+    url.setPath(path);
     //得到请求体
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader,
